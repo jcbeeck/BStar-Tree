@@ -1,5 +1,5 @@
 /*
-* @author   Oscar Cuadros Linares and Jan Beeck
+* @author  Oscar Cuadros Linares and Jan Beeck
 * @version 1.0
 * @since   April-2005
 */
