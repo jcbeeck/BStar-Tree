@@ -1,3 +1,8 @@
+/*
+* @author   Oscar Cuadros Linares and Jan Beeck
+* @version 1.0
+* @since   April-2005
+*/
 
 // ArbolBAsterisco.cpp : Defines the entry point for the console application.
 //
@@ -12,12 +17,6 @@
 
 //Poner el enum para overflow y underflow
 //el formato es enum tipo{a=2,b,c}
-
-
- 
-
-//***********************************************************************
-/**@author Oscar Cuadros Linares and Jan Beeck*/
 
 /**
 	@file Clase BAsterTree
@@ -91,7 +90,7 @@ template<typename T>
 class CPagina
 {
 	public:
-		CDato<T> *m_pDatos; /**@param Array din·mico de Datos */
+		CDato<T> *m_pDatos; /**@param Array din√°mico de Datos */
 		int m_iLong; /**@param Longitud del array de datos de la pagina */
 		CPagina<T> **m_ppHijos;/**@param Array de punteros a los hijos*/
 		CPagina<T> *m_pPadre; /**@param Puntero al padre */
@@ -126,9 +125,9 @@ class CBAsterisco //:public Win32Thread
 {
 	private:
 		CPagina<T> *m_pRaiz;/** @param Puntero a la raiz del arbol*/
-		int m_iIndice; /** @param Es el indice del ¡rbol*/
+		int m_iIndice; /** @param Es el indice del √Årbol*/
 	public:
-		/**Clase miembro de CBasterisco<T> que me permite recorrer el ·rbol */
+		/**Clase miembro de CBasterisco<T> que me permite recorrer el √°rbol */
 		class m_cIterador
 		{
 			public:
@@ -136,7 +135,7 @@ class CBAsterisco //:public Win32Thread
 			CPagina<T> *Pagina;
 			int Pos;
 			m_cIterador(){}
-			/**Sobrecarga del operrador ++ para recorrer el ·rbol en orden*/
+			/**Sobrecarga del operrador ++ para recorrer el √°rbol en orden*/
 			m_cIterador operator ++(int)
 			{
 				
@@ -207,39 +206,39 @@ class CBAsterisco //:public Win32Thread
 		
 		CBAsterisco(int m_iIndice);
 		CBAsterisco(); //: Win32Thread() {}
-		/**funciÛn que retorna un m_cIterator conteniendo al menor de los elementos  */
+		/**funci√≥n que retorna un m_cIterator conteniendo al menor de los elementos  */
 		m_cIterador Inicio();
-		/**FunciÛn que retorna el ultimo  elemento del ·rbol*/
+		/**Funci√≥n que retorna el ultimo  elemento del √°rbol*/
 		m_cIterador Fin();
-		/**FunciÛn booleana de busqueda binaria que indica si un dato existe en el arbol, donde esta o donde deberia estar*/
+		/**Funci√≥n booleana de busqueda binaria que indica si un dato existe en el arbol, donde esta o donde deberia estar*/
 		bool Buscar(CPagina<T> **&ppPag, CPagina<T> **&ppPad, int &iPos,CDato<T> Dato);
-		/**FunciÛn booleana que indica si una pagina es hoja*/
+		/**Funci√≥n booleana que indica si una pagina es hoja*/
 		bool Hoja(CPagina<T> **ppPag);
-		/**FunciÛn que inserta un dato en el arbol*/
+		/**Funci√≥n que inserta un dato en el arbol*/
 		void Insertar(CDato<T> Dato);
-		/**FunciÛn que inserta un dato en una hoja*/
+		/**Funci√≥n que inserta un dato en una hoja*/
 		void InsertarHoja(CPagina<T> **ppPag, CDato<T> Dato);
-		/**FunciÛn que intercambia dos elementos de un vector */
+		/**Funci√≥n que intercambia dos elementos de un vector */
 		void Intercambiar(int iPos1, int iPos2, CPagina<T> **ppPag );
-		/**FunciÛn que calcula en numero menor de elemntos que debe tener una p·gina*/
+		/**Funci√≥n que calcula en numero menor de elemntos que debe tener una p√°gina*/
 		int Menor(int Indice);
-		/**FunciÛn que indica si en una p·gina existe alg˙n tipo de violaciÛn*/
+		/**Funci√≥n que indica si en una p√°gina existe alg√∫n tipo de violaci√≥n*/
 		int Violacion(CPagina<T>**ppPag);
-		/**FunciÛn que indica si se puede rotar o partir*/
+		/**Funci√≥n que indica si se puede rotar o partir*/
 		int Solucion(CPagina<T> **ppPag, int &PosHer);
-		/**FunciÛn Partir una pagina que est· en overflow*/
+		/**Funci√≥n Partir una pagina que est√° en overflow*/
 		void Partir(CPagina<T> **ppPag, int PosHer);
-		/**FunciÛn que imprime en pantalla los datos de una pagina */
+		/**Funci√≥n que imprime en pantalla los datos de una pagina */
 		void MostrarHoja(CPagina<T> **ppPag);
 		/**Funcion que rota los datos a la derecha o izquierda*/
 		void Rotar(CPagina<T> **ppPag, int PosHer);
 		/**Funcion contar los Datos de un pagina*/
 		int Contar(CPagina<T> **ppPag);
-		/**FunciÛn que es llamada por la funciÛn partir en caso de que se tenga que partir la raiz*/
+		/**Funci√≥n que es llamada por la funci√≥n partir en caso de que se tenga que partir la raiz*/
 		void PartirRaiz(CPagina<T> **ppPag, int PosHer);
-		/**FunciÛn que pertenece a la funcion partir y parte los hijos hacia la derecha*/
+		/**Funci√≥n que pertenece a la funcion partir y parte los hijos hacia la derecha*/
 		void PartirHijosDerecha(CPagina<T> **ppPag,int  PosHer);
-		/**FunciÛn que pertenece a la funcion partir y parte los hijos hacia la izquierda*/
+		/**Funci√≥n que pertenece a la funcion partir y parte los hijos hacia la izquierda*/
 		void PartirHijosIzquierda(CPagina<T> **ppPag,int  PosHer);
 		~CBAsterisco(){}
 };
@@ -301,7 +300,7 @@ void CBAsterisco<T>::Insertar(CDato<T> Dato)
 	CPagina<T> **ppPag=0, **ppPad=0;
 	int iPos=0;
 	if(Buscar(ppPag, ppPad, iPos, Dato))
-		return;//El dato ya existe en el ·rbol
+		return;//El dato ya existe en el √°rbol
 	else
 	{
 		if((*ppPag)==0)
@@ -519,7 +518,7 @@ void CBAsterisco<T>::PartirHijosDerecha(CPagina<T> **ppPag,int  PosHer)
 	(*ppPag)->m_pPadre->m_ppHijos[PosHer]=new CPagina<T>(m_iIndice);
 	(*ppPag)->m_pPadre->m_ppHijos[PosHer]->m_pPadre=(*ppPag)->m_pPadre;
 	(*ppPag)->m_pPadre->m_ppHijos[PosHer]->m_iPosPadre=PosHer;
-	//meter los datos a las p·ginas
+	//meter los datos a las p√°ginas
 	i=0;
 	j=PosHer-1;
 	int k=0;
